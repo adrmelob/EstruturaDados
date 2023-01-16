@@ -57,6 +57,12 @@ public class ListaLigada {
 	
 	
 	public void adicionaPosicao (int posicao, Object elemento) {
+		//Aqui vamos pegar a posição da celular que nos queremos - 1, que indica onde queremos coloca-la
+		Celula anterior = this.pegaCelula(posicao -1);
+		//
+		Celula nova = new Celula(elemento, anterior.getProximo());
+		
+		anterior.setProximo(nova);
 		
 	}
 	
