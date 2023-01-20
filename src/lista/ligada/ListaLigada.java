@@ -33,7 +33,7 @@ public class ListaLigada {
 	
 	
 	public boolean posicaoOcupada(int posicao) {
-		return posicao == 0 && posicao < totalDeElementos; 
+		return posicao >= 0 && posicao < totalDeElementos; 
 			
 				
 	}
@@ -52,24 +52,28 @@ public class ListaLigada {
 		return atual;
 		
 		}
-	
-	
-	
-	
+
 	public void adicionaPosicao (int posicao, Object elemento) {
+		if (posicao == 0) {
+			adicionaNoComeco(elemento);
+		}else if (posicao == this.totalDeElementos) {
+			adicionaNoFim(elemento);
+					
+		}else {
 		//Aqui vamos pegar a posição da celular que nos queremos - 1, que indica onde queremos coloca-la
 		Celula anterior = this.pegaCelula(posicao -1);
-		//
+		//Aqui a nova celula vai ter o valor proximo do getProximo da celula anterior 
 		Celula nova = new Celula(elemento, anterior.getProximo());
-		
+		//E agora vamos setar o valor do setProximo da anterior na Celula nova
 		anterior.setProximo(nova);
-		
+		this.totalDeElementos++;
+		}
 	}
 	
 	
 	
 	public Object pega (int posicao ) {
-		return null;
+		return this.pegaCelula(posicao).getElemento();
 	}
 
 	public void remove (int posicao) {
@@ -77,7 +81,7 @@ public class ListaLigada {
 	}
 	
 	public int tamanho () {
-		return 0;
+		return this.totalDeElementos;
 	}
 	
 	public boolean contem (Object o) {

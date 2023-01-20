@@ -22,12 +22,19 @@ public class testaListaLigada {
 		
 		lista.adicionaNoFim("Paulo");
 		System.out.println(lista);
-		lista.adicionaNoFim("João");
+				
+		
+//		Adicionar no Meio
+		
+		lista.adicionaPosicao(2, "Gabriel");
 		System.out.println(lista);
-		lista.adicionaNoFim("Marcelo");
-		System.out.println(lista);
-		lista.adicionaNoFim("Pedro");
-		System.out.println(lista);
+		
+		Object x = lista.pega(2);
+		System.out.println(x);
+		
+		System.out.println(lista.tamanho());
+		
+			
 
 	}
 
