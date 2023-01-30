@@ -4,9 +4,9 @@ import lista.ligada.Celula;
 
 public class ListaDuplamenteLigada {
 
-	private Celula ultima = null;
-	private Celula primeira = null;
-	private int totalDeElementos = 0;
+	private Celula ultima;
+	private Celula primeira;
+	private int totalDeElementos;
 	
 	public void adicionaNoComeco (Object elemento) {
 		if (this.totalDeElementos == 0) {
@@ -14,7 +14,7 @@ public class ListaDuplamenteLigada {
 			this.primeira = nova;
 			this.ultima = nova;
 		} else {
-			Celula nova = new Celula (this.primeira, (Celula) elemento);
+			Celula nova = new Celula (this.primeira, elemento);
 			this.primeira.setAnterior(nova);
 			this.primeira = nova;
 			
@@ -72,9 +72,24 @@ public class ListaDuplamenteLigada {
 			this.adicionaNoFim(elemento);
 		} else {
 			
-			Celula anterior = pegaCelula(posicao -1);
+			//Essa celula faz referencia a anterior subtraindo - 1 da posição
+			Celula anterior = pegaCelula (posicao -1);
+			
+			//aqui pegamos a proxima da anterior
 			Celula proxima = anterior.getProximo();
 			
+			//Criamos uma nova célula passando com parâmetro o proximo e o elemento
+			//Aqui o próximo é o proximo do anterior
+			Celula nova = new Celula (anterior.getProximo(), elemento);
+			//setamos o anterior da nova celula como a celula anterior
+			nova.setAnterior(anterior);
+			//setamos o proximo da celula anterior com a celula nova
+			anterior.setProximo(nova);
+			//setamos o anterior da proxima celula com a nova
+			proxima.setAnterior(nova);
+			this.totalDeElementos++;
+			
+					
 						
 		}
 		
