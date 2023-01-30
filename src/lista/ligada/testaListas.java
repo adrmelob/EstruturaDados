@@ -1,6 +1,6 @@
 package lista.ligada;
 
-public class testaListaLigada {
+public class testaListas {
 
 	public static void main(String[] args) {
 		
@@ -33,6 +33,8 @@ public class testaListaLigada {
 		System.out.println(x);
 		
 		System.out.println(lista.tamanho());
+		
+		
 		
 			
 
