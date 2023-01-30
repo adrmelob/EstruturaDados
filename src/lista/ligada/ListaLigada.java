@@ -2,14 +2,14 @@ package lista.ligada;
 
 public class ListaLigada {
 	
-	private Celula ultima = null;
-	private Celula primeira = null;
-	private int totalDeElementos = 0;
+	private Celula ultima;
+	private Celula primeira;
+	private int totalDeElementos;
 	
 	public void adicionaNoComeco (Object elemento) {
-		Celula nova = new Celula(elemento, primeira);
+		Celula nova = new Celula(primeira, elemento);
 		this.primeira = nova;
-		
+				
 		if(this.totalDeElementos ==0) {
 			this.ultima = this.primeira;
 		}
@@ -24,7 +24,7 @@ public class ListaLigada {
 		if (this.totalDeElementos ==0) {
 			adicionaNoComeco(elemento);
 		} else {
-					Celula nova = new Celula(elemento, ultima);
+					Celula nova = new Celula(elemento);
 					this.ultima.setProximo(nova);
 					this.ultima = nova; 
 					this.totalDeElementos++;
@@ -63,7 +63,8 @@ public class ListaLigada {
 		//Aqui vamos pegar a posição da celular que nos queremos - 1, que indica onde queremos coloca-la
 		Celula anterior = this.pegaCelula(posicao -1);
 		//Aqui a nova celula vai ter o valor proximo do getProximo da celula anterior 
-		Celula nova = new Celula(elemento, anterior.getProximo());
+
+		Celula nova = new Celula(anterior.getProximo(), elemento);
 		//E agora vamos setar o valor do setProximo da anterior na Celula nova
 		anterior.setProximo(nova);
 		this.totalDeElementos++;
