@@ -105,25 +105,17 @@ public class ListaDuplamenteLigada {
 	}
 
 	
-	public void removeDoComeco () {
-		if(this.totalDeElementos==0) {
-			
-			throw new IllegalArgumentException("lista vazia");
-		}
+		
+	public void removeDoComeco() {
+		
+		if (totalDeElementos == 0) return;
 		
 		this.primeira = this.primeira.getProximo();
 		this.totalDeElementos --;
 		
-		if (this.totalDeElementos == 0) {
+		if(this.totalDeElementos==0 ) {
 			this.ultima = null;
 		}
-		
-	}
-	
-	
-	public void remove (int posicao) {
-		
-		
 		
 		
 	}
@@ -132,11 +124,7 @@ public class ListaDuplamenteLigada {
 		return this.totalDeElementos;
 	}
 	
-	public boolean contem (Object o) {
-		return false;
-	
-	}
-	
+		
 	@Override
 	public String toString() {
 		if (this.totalDeElementos == 0) {
@@ -157,4 +145,48 @@ public class ListaDuplamenteLigada {
 		return builder.toString();
 		
 	}
+	
+	public void removeDoFim() {
+		if (this.totalDeElementos == 1) {
+			this.removeDoComeco();
+			
+		}else {
+			Celula penultima = this.ultima.getAnterior();
+			penultima.setProximo(null);
+			this.ultima = penultima;
+			this.totalDeElementos--;
+		}
+		
+	}
+	
+	public void removePosicao (int posicao) {
+		if (posicao ==0) {
+			this.removeDoComeco();
+			
+		}else if (posicao == totalDeElementos-1) {
+			this.removeDoFim();
+		}else {
+			Celula anterior = this.pegaCelula(posicao -1);
+			Celula atual = anterior.getProximo();
+			Celula proxima = atual.getProximo();
+			
+			anterior.setProximo(proxima);
+			proxima.setAnterior(anterior);
+			
+			this.totalDeElementos--;
+		}
+		
+	}
+	public boolean contem (Object elemento) {
+		Celula atual = this.primeira;
+		
+		while (atual != null) {
+			if (atual.getElemento().equals(elemento)) {
+				return true;
+			}
+			atual = atual.getProximo();
+		}
+		return false;
+	}
+	
 }

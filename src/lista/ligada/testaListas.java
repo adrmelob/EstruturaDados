@@ -67,11 +67,40 @@ public class testaListas {
 		System.out.println("");
 		
 		dLigada.adicionaPosicao(2, "Claudia");
+		dLigada.adicionaPosicao(3, "Miguel");
 		
 		System.out.println(dLigada);
 		
-			
+		System.out.println("");
+		System.out.println("Removendo do começo");
+		System.out.println("");	
+		
+		dLigada.removeDoComeco();
+		System.out.println(dLigada);
+		
+		System.out.println("");
+		System.out.println("Removendo do fim");
+		System.out.println("");	
+		
+		dLigada.removeDoFim();
+		System.out.println(dLigada);
+		
+		
+		System.out.println("");
+		System.out.println("Removendo de qualquer posição");
+		System.out.println("");	
+		
+		dLigada.removePosicao(2);
+		System.out.println(dLigada);
+		
+		System.out.println("");
+		System.out.println("Método Contém");
+		System.out.println("");	
+		
+		System.out.println(dLigada.contem("Gabriela"));
 
 	}
 
+	
+	
 }
