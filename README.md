@@ -27,3 +27,12 @@ A pilha é uma estrutura de dados que armazenam seus elementos um em cima do out
 <strong>Fila</strong>
 
 Diferente da pilha, a fila consiste em uma estrutura de dados onde os elementos ficam enfileirados. Vamos imaginar uma fila de supermercado, quem chega primeiro será o primeiro a ser atendido. Na fila, funciona igual, o primeiro elemento a entrar será o último o primeiro a sair. No mundo da programação isso é denominado de FIFO (First In First Out), para o português "PEPS" - Primeiro a entrar Primeiro a Sair.
+
+<strong>Conjuntos</strong>
+
+Conjuntos são estruturas de dados que não permitem dados repetidos. Eles são separados por categoria por meio de hash (“sequência de dados que possibilitam a identificação de um elemento”).
+Vamos imaginar uma escola, imagina como seria demorado buscar o aluno João dentro do sistema escolar caso a estrutura usada fosse em apenas uma lista contendo todos os alunos da escola. 
+Não seria muito mais fácil buscar o aluno João, dentro de uma lista menor contendo apenas os alunos que tem a sua inicial com a leta “J”?
+Bom, é basicamente isso para que essa estrutura serve.
+
+
